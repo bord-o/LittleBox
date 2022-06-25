@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/icons/lnk.png">
+
+
+    <title>LittleBox</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/style.css" rel="stylesheet">
+
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&display=swap" rel="stylesheet"> 
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand nav-main-title" href="/">LittleBox</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="https://github.com/bord-o/">Github</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container app-container"  >
+
+      <div  class="row">
+        <div id="uploader" class="col-md-4 uploader">
+          <div class="icon-container">
+            <img src="/static/icons/up.png" style="height:60px;width:60px"/>
+          </div>
+
+          <div style="text-align: center;" class="icon-container">
+            <form class="fileinputwrapper" id="uploadArea" enctype="multipart/form-data" method="post" action="">
+
+              <label class="center-comp" for="fileUp">Click or Tap to Upload</label>
+              <div class="upCont">
+                <input id="fileUp" type="file" name="document">
+              </div>
+
+              <input class="upload-but" id="submitButton" type="submit" value="Upload File">
+            </form>
+
+          </div>
+        </div>
+
+        <div id="shareviewer" class="col-md-7 col-md-offset-1 shareviewer">
+          <div class="icon-container">
+            <img src="/static/icons/lnk.png" style="height:60px;width:60px"/>
+          </div>
+          <h4 style="text-align: center">Share link</h4>
+
+          <div class="icon-container">
+            {% if url %}
+              <input type="text" id="linkOut"  style="width: 80%; text-align: center; padding: 0px 0px 0px 0px" value="{{url}}"  autocomplete="off" readonly>
+            {% else %}
+              <input type="text" id="linkOut"  style="width: 80%; text-align: center; padding: 0px 0px 0px 0px" value="Share Link"  autocomplete="off" readonly>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+      
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="/static/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

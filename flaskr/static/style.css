@@ -1,0 +1,88 @@
+:root{
+  --upload-bg-col: #3368A0;
+  --link-bg-col: var(--upload-bg-col);
+  --contain-bg-col:grey;
+  --main-bg-col:#A7B0BD;
+  --nav-bg-col:#0B1119;
+  --up-but-color: #6494B9;
+  --blurs: -4px 13px 21px 4px rgba(0,0,0,0.46);
+
+}
+
+.fileinputwrapper {
+  word-break: break-all;
+  overflow: hidden;
+  width: 70%;
+}
+
+.nav-main-title {
+  color:white !important;
+}
+
+.navbar-inverse {
+  background: var(--nav-bg-col);
+  border-color: var(--nav-bg-col);
+}
+
+.navbar-inverse .navbar-nav > .active > a{
+  background-color: var(--nav-bg-col);
+}
+
+.navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
+  background-color:var(--nav-bg-col);
+}
+
+body {
+  background: var(--main-bg-col);
+  font-family: 'IBM Plex Mono', monospace;
+}
+.center-comp{
+  display:flex;
+  justify-content:center;
+}
+.upCont{
+  border: dotted 0px;
+  border-color: black;
+}
+#fileUp{
+  opacity: 1;
+  margin-left: 35px;
+}
+.upload-but{
+  background-color: var(--up-but-color);
+  border-color:var(--up-but-color);
+  color: black;
+  padding-top: 0.4rem  0.4rem  0.4rem  0.4rem ;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+.icon-container{
+  display:flex;
+  justify-content:center;
+  padding-top:18px;
+}
+
+.app-container{
+  margin-top:22vh;
+  background: var(--main-bg-col);
+}
+.uploader{
+  margin-top: 2vh;
+  align-items: center; 
+  min-height: 240px;
+  background: var(--upload-bg-col);
+  border-radius: 30px;
+  -webkit-box-shadow: var(--blurs);
+  box-shadow: var(--blurs);
+
+}
+.shareviewer{
+  margin-top: 2vh; 
+  align-items: center; 
+  min-height: 240px; 
+  background: var(--link-bg-col);
+  border-radius: 30px;
+  -webkit-box-shadow: var(--blurs);
+  box-shadow: var(--blurs);
+}
