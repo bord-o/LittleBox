@@ -3,7 +3,6 @@ import base64
 import time
 from flask import Flask, flash, redirect, url_for, render_template, request, send_file
 from werkzeug.utils import secure_filename
-
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -26,7 +25,6 @@ app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024    #  500Mb size limit
 db = SQLAlchemy(app)
 
 from .models import File
-print(File.query.all())
 
 # utility functions
 def allowed_file(filename):
@@ -36,7 +34,7 @@ def allowed_file(filename):
 def temp_hash(filename):
     namestamp = base64.b64encode(bytes(filename[:3], 'utf-8'))
     timestamp = base64.b64encode(bytes(str(time.time())[-6:], 'utf-8'))
-    
+
     return (timestamp + namestamp).decode('utf-8')
 
 
@@ -62,14 +60,12 @@ def upload():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             temphash = temp_hash(filename)
-            print('hmmm')
-            
+
             #put together upload directory with hash as parent folder
             updir = os.path.join(app.config['UPLOAD_FOLDER'], temphash)
-            print(updir)
             os.mkdir(updir)
             file.save(os.path.join(updir, filename))
-            
+
             newfile = File(hash=temphash, file_path=os.path.join(updir,filename))
             db.session.add(newfile)
             db.session.commit()
@@ -83,7 +79,5 @@ def upload():
 def download(filehash):
     found_file = File.query.filter_by(hash=filehash).first()
     if found_file:
-        print(found_file.file_path)
-        print("found it !!!")
         return send_file(f"{found_file.file_path}", as_attachment=True)
     return redirect(url_for('upload'))
